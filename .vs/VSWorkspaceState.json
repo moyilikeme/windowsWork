@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SimpleMusic",
+    "\\SimpleMusic.Tests",
+    "\\SimpleMusic\\Models"
   ],
-  "SelectedNode": "\\readme.md",
+  "SelectedNode": "\\SimpleMusic\\MusicScanner.cs",
   "PreviewInSolutionExplorer": false
 }

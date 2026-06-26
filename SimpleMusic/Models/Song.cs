@@ -1,0 +1,9 @@
+namespace SimpleMusic.Models;
+
+public class Song
+{
+	public string FilePath { get; set; } = "";
+	public string Title { get; set; } = "";
+	public string Artist { get; set; } = "";
+	public TimeSpan Duration { get; set; }
+}
