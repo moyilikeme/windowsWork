@@ -41,8 +41,17 @@ public class MusicDb : IDisposable
         tx.Commit();
     }
 
-    public List<Song> GetAllSongs() =>
-        _conn.Query<Song>("SELECT FilePath, Title, Artist, Duration FROM Songs").ToList();
+    public List<Song> GetAllSongs()
+    {
+        return _conn.Query(@"SELECT Path AS FilePath, Title, Artist, Duration FROM Songs")
+            .Select(row => new Song
+            {
+                FilePath = (string)row.FilePath,
+                Title = (string)row.Title,
+                Artist = (string)row.Artist,
+                Duration = TimeSpan.FromSeconds((int)row.Duration)
+            }).ToList();
+    }
 
     public void Dispose() => _conn.Dispose();
 }

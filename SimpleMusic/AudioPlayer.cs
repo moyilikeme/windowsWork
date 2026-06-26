@@ -7,6 +7,7 @@ public class AudioPlayer : IDisposable
     private IWavePlayer? _waveOut;
     private AudioFileReader? _fileReader;
     private System.Windows.Forms.Timer? _progressTimer;
+    private bool _isStopping;
 
     public event Action<TimeSpan, TimeSpan>? ProgressChanged;
     public event Action? PlaybackFinished;
@@ -20,7 +21,11 @@ public class AudioPlayer : IDisposable
         _fileReader = new AudioFileReader(filePath);
         _waveOut = new WaveOutEvent();
         _waveOut.Init(_fileReader);
-        _waveOut.PlaybackStopped += (s, e) => PlaybackFinished?.Invoke();
+        _waveOut.PlaybackStopped += (s, e) =>
+        {
+            if (!_isStopping)
+                PlaybackFinished?.Invoke();
+        };
         _waveOut.Play();
 
         _progressTimer = new System.Windows.Forms.Timer { Interval = 100 };
@@ -34,12 +39,14 @@ public class AudioPlayer : IDisposable
 
     public void Stop()
     {
+        _isStopping = true;
         _progressTimer?.Stop();
         _waveOut?.Stop();
         _waveOut?.Dispose();
         _fileReader?.Dispose();
         _waveOut = null;
         _fileReader = null;
+        _isStopping = false;
     }
 
     public void Seek(double percent)
