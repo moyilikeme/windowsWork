@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\windowsWork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic\\simplemusic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|solutionrelative:simplemusic\\simplemusic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic\\musicdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|solutionrelative:simplemusic\\musicdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic\\audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|solutionrelative:simplemusic\\audioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|solutionrelative:simplemusic\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic\\musicscanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF16660F-B1E2-A4C7-F226-8137B970501D}|SimpleMusic\\SimpleMusic.csproj|solutionrelative:simplemusic\\musicscanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1703DE3C-C330-CDF7-3424-20AB17A1F126}|SimpleMusic.Tests\\SimpleMusic.Tests.csproj|c:\\users\\asus\\desktop\\windowswork\\simplemusic.tests\\simplemusic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1703DE3C-C330-CDF7-3424-20AB17A1F126}|SimpleMusic.Tests\\SimpleMusic.Tests.csproj|solutionrelative:simplemusic.tests\\simplemusic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +34,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MusicDb.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MusicDb.cs",
+              "RelativeDocumentMoniker": "SimpleMusic\\MusicDb.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MusicDb.cs",
+              "RelativeToolTip": "SimpleMusic\\MusicDb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T14:32:30.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MusicScanner.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MusicScanner.cs",
+              "RelativeDocumentMoniker": "SimpleMusic\\MusicScanner.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MusicScanner.cs",
+              "RelativeToolTip": "SimpleMusic\\MusicScanner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T14:29:32.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AudioPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\AudioPlayer.cs",
+              "RelativeDocumentMoniker": "SimpleMusic\\AudioPlayer.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\AudioPlayer.cs",
+              "RelativeToolTip": "SimpleMusic\\AudioPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-26T14:17:34.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SimpleMusic.Tests",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic.Tests\\SimpleMusic.Tests.csproj",
+              "RelativeDocumentMoniker": "SimpleMusic.Tests\\SimpleMusic.Tests.csproj",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic.Tests\\SimpleMusic.Tests.csproj",
+              "RelativeToolTip": "SimpleMusic.Tests\\SimpleMusic.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-26T14:16:52.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SimpleMusic",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\SimpleMusic.csproj",
+              "RelativeDocumentMoniker": "SimpleMusic\\SimpleMusic.csproj",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\SimpleMusic.csproj",
+              "RelativeToolTip": "SimpleMusic\\SimpleMusic.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-26T14:16:48.146Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -30,13 +115,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MainForm.cs",
               "RelativeDocumentMoniker": "SimpleMusic\\MainForm.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\windowsWork\\SimpleMusic\\MainForm.cs",
               "RelativeToolTip": "SimpleMusic\\MainForm.cs",
-              "ViewState": "AgIAAP4CAAAAAAAAAAAzwB8DAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-26T08:16:05.702Z",
               "EditorCaption": ""

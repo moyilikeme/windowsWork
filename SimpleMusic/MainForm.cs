@@ -370,11 +370,12 @@ public partial class MainForm : Form
         using var dlg = new FolderBrowserDialog();
         if (dlg.ShowDialog() == DialogResult.OK)
         {
-            btnScan.Enabled = false;
-            _ = LoadSongsAsync(dlg.SelectedPath);
+            btnScan.Enabled = false; // 防止重复点击
+            _ = LoadSongsAsync(dlg.SelectedPath); // 丢弃 Task，内部自行处理异常
         }
     }
 
+    /// 异步扫描文件夹、保存数据库并刷新列表。 
     private async Task LoadSongsAsync(string folder)
     {
         try
@@ -384,6 +385,7 @@ public partial class MainForm : Form
             using var db = new MusicDb("localhost", "simplemusic", "root", "123456");
             db.SaveSongs(_playlist);
 
+            // 跨线程更新 UI
             if (InvokeRequired)
             {
                 Invoke(UpdateList);
@@ -395,6 +397,7 @@ public partial class MainForm : Form
         }
         catch (Exception ex)
         {
+            // 异常信息也需 Invoke 到 UI 线程显示
             if (InvokeRequired)
             {
                 Invoke(() => MessageBox.Show($"保存到数据库失败：{ex.Message}", "错误",
@@ -408,18 +411,21 @@ public partial class MainForm : Form
         }
     }
 
+    /// 刷新列表框数据源。 
     private void UpdateList()
     {
         listBoxSongs.DataSource = null;
         listBoxSongs.DataSource = _playlist;
     }
 
+    /// 双击列表项：切换当前播放。 
     private void listBoxSongs_DoubleClick(object? sender, EventArgs e)
     {
         _currentIndex = listBoxSongs.SelectedIndex;
         PlayCurrent();
     }
 
+    /// 播放当前索引歌曲，更新封面、歌词和 UI。 
     private void PlayCurrent()
     {
         if (_currentIndex < 0 || _currentIndex >= _playlist.Count) return;
@@ -434,6 +440,7 @@ public partial class MainForm : Form
         // 同步列表选中项
         listBoxSongs.SelectedIndex = _currentIndex;
 
+        // 加载同目录 .lrc 歌词文件
         var lrcPath = Path.ChangeExtension(song.FilePath, ".lrc");
         _lyrics = File.Exists(lrcPath)
             ? new LyricParser().Parse(File.ReadAllText(lrcPath))
@@ -447,6 +454,7 @@ public partial class MainForm : Form
         btnPlay.Text = "⏸";
     }
 
+    /// 加载歌曲封面：优先内嵌标签，其次同目录图片。 
     private Image? LoadCover(string filePath)
     {
         // 1. 先尝试读取音频文件内嵌封面
@@ -462,13 +470,13 @@ public partial class MainForm : Form
         }
         catch { }
 
-        // 2. 查找同目录下的封面图片
+        // 2. 查找同目录下的封面图片（按常见命名优先级）
         var dir = Path.GetDirectoryName(filePath);
         if (dir != null)
         {
             var coverNames = new[] { "cover.jpg", "cover.png", "folder.jpg", "folder.png",
-                                     "album.jpg", "album.png", "front.jpg", "front.png",
-                                     "albumart.jpg", "albumart.png" };
+                                 "album.jpg", "album.png", "front.jpg", "front.png",
+                                 "albumart.jpg", "albumart.png" };
             foreach (var name in coverNames)
             {
                 var coverPath = Path.Combine(dir, name);
@@ -479,7 +487,7 @@ public partial class MainForm : Form
                 }
             }
 
-            // 3. 查找目录下任意 jpg/png 图片作为封面
+            // 3. 兜底：目录下任意 jpg/png 图片
             foreach (var img in Directory.EnumerateFiles(dir)
                          .Where(f => f.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
                                      f.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
@@ -493,6 +501,7 @@ public partial class MainForm : Form
         return null;
     }
 
+    /// 播放进度回调：更新时间标签、进度条和歌词高亮。 
     private void OnProgressChanged(TimeSpan current, TimeSpan total)
     {
         if (InvokeRequired)
@@ -513,6 +522,7 @@ public partial class MainForm : Form
         }
     }
 
+    /// 播放结束回调：自动播放下一首。 
     private void OnSongFinished()
     {
         if (InvokeRequired)
@@ -528,6 +538,7 @@ public partial class MainForm : Form
         }
     }
 
+    /// 播放/暂停切换。 
     private void btnPlay_Click(object? sender, EventArgs e)
     {
         if (_player.IsPlaying)
@@ -542,6 +553,7 @@ public partial class MainForm : Form
         }
     }
 
+    /// 上一首。 
     private void btnPrev_Click(object? sender, EventArgs e)
     {
         if (_currentIndex > 0)
@@ -551,6 +563,7 @@ public partial class MainForm : Form
         }
     }
 
+    /// 下一首。 
     private void btnNext_Click(object? sender, EventArgs e)
     {
         if (_currentIndex + 1 < _playlist.Count)
@@ -560,22 +573,23 @@ public partial class MainForm : Form
         }
     }
 
+    /// 进度条拖拽跳转。 
     private void progressSlider_Seeked(double percent)
     {
         _player.Seek(percent);
     }
 
+    /// 释放播放器资源。 
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
         _player.Dispose();
         base.OnFormClosing(e);
     }
-}
 
-// ============================================================
-// 自定义圆形滑块进度条
-// ============================================================
-internal class ProgressSlider : Control
+    // ============================================================
+    // 自定义圆形滑块进度条
+    // ============================================================
+    internal class ProgressSlider : Control
 {
     private double _value;
     private bool _isDragging;
